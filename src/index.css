@@ -1,1 +1,48 @@
+html {
+  -webkit-app-region: drag;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+body {
+  width: 100%;
+}
+
+input.new-todo {
+  text-align: center;
+  padding: 16px;
+  box-shadow: none;
+}
+
+footer,
+h1 {
+  display: none;
+}
+
+.todoapp {
+  margin: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.todo-list {
+  padding: 0 16px;
+}
+
+.view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.view:hover img {
+  opacity: 0.1;
+  transition: opacity 0.25s;
+}
+
+.view img {
+  width: 56px;
+  height: 56px;
+}
