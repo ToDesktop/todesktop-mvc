@@ -9,8 +9,12 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",  
+  "license": "ISC",
   "dependencies": {
+    "@todesktop/client-active-win": "^0.11.0",
+    "@todesktop/client-core": "^1.0.0-alpha5",
+    "@todesktop/client-get-app-icon": "^0.2.0",
+    "@todesktop/client-selected-text": "^0.5.0",
     "todomvc-app-css": "^2.0.1",
     "todomvc-common": "^1.0.2"
   },
