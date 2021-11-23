@@ -25,6 +25,7 @@ export default class Template {
 	<div class="view">
 		<input class="toggle" type="checkbox" ${item.completed ? "checked" : ""}>
 		<label>${escapeForHTML(item.title)}</label>
+    <img src="${item.icon || "https://raw.githubusercontent.com/ToDesktop/todesktop-mvc/main/assets/todomvc-logo.png"}">	
 		<button class="destroy"></button>
 	</div>
 </li>`,
