@@ -1,4 +1,4 @@
-import { registerShortcut } from "@todesktop/client-selected-text";
+import { registerShortcut, unregisterShortcut } from "@todesktop/client-selected-text";
 import { getActiveWin } from "@todesktop/client-active-win";
 import { extractIcon } from "@todesktop/client-get-app-icon";
 import { app } from "@todesktop/client-core";
@@ -16,14 +16,14 @@ export default class Controller {
     this.store = store;
     this.view = view;
 
-    app.once("bindToDesktopPlugins", () => {
+    app.once("bindToDesktopPlugins", (reset) => {
       registerShortcut("CommandOrControl+Shift+.", async (text) => {
         const selectedText = text.trim();
-    
+
         if (selectedText) {
           const { owner } = await getActiveWin();
           const icon = await extractIcon(owner.path);
-    
+
           app.focus({ steal: true });
           this.addItem(`Review ${selectedText}`, icon);
         }
@@ -34,6 +34,11 @@ export default class Controller {
           window.resizeTo(entry.contentRect.width, entry.contentRect.height);
         }
       }).observe(document.querySelector("body"));
+
+      window.addEventListener("unload", () => {
+        unregisterShortcut("CommandOrControl+Shift+.");
+        reset();
+      });
     });
 
     view.bindAddItem(this.addItem.bind(this));
