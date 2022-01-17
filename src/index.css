@@ -1,4 +1,4 @@
-html {
+html.todesktop {
   -webkit-app-region: drag;
   min-height: 100%;
   display: flex;
@@ -6,28 +6,28 @@ html {
   align-items: center;
 }
 
-body {
+.todesktop body {
   width: 100%;
 }
 
-input.new-todo {
+.todesktop input.new-todo {
   text-align: center;
   padding: 16px;
   box-shadow: none;
 }
 
-footer,
-h1 {
+.todesktop footer,
+.todesktop h1 {
   display: none;
 }
 
-.todoapp {
+.todesktop .todoapp {
   margin: 0;
   box-shadow: none;
   background: transparent;
 }
 
-.todo-list {
+.todesktop .todo-list {
   padding: 0 16px;
 }
 
