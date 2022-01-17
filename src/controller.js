@@ -18,6 +18,11 @@ export default class Controller {
 
     app.once("bindToDesktopPlugins", (reset) => {
       registerShortcut("CommandOrControl+Shift+.", async (text) => {
+        if (!document.hidden) {
+          // If the app is visible then hide it and do nothing
+          app.hide();
+          return;
+        }
         const selectedText = text.trim();
 
         if (selectedText) {
@@ -25,7 +30,7 @@ export default class Controller {
           const icon = await extractIcon(owner.path);
 
           app.focus({ steal: true });
-          this.addItem(`Review ${selectedText}`, icon);
+          this.addItem(selectedText, icon);
         }
       });
 
